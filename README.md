@@ -1,5 +1,4 @@
-
-# 🌐 BJM Developers - Link Hub
+# 🌐 Link-Hub
 
 **All your important links in one beautiful, responsive portal**  
 
