@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BJM Developers | Link-Hub </title>
+    <meta name="description" content="All important links for BJM Developers in one place.">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== CSS Variables ===== */
+        :root {
+            /* Colors */
+            --primary-bg: #1a1a2e;
+            --secondary-bg: #16213e;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-light: rgba(255, 255, 255, 0.9);
+            --text-muted: rgba(255, 255, 255, 0.7);
+            
+            /* Social Brand Colors */
+            --discord: #5865F2;
+            --twitter: #1DA1F2;
+            --youtube: #FF0000;
+            --facebook: #4267B2;
+            --github: #333;
+            --linkedin: #0A66C2;
+            --instagram: #E1306C;
+            --reddit: #FF5700;
+            --email: #6A5ACD;
+            --telegram: #0088cc;
+            --whatsapp: #25D366;
+            
+            /* Effects */
+            --shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+            --transition: all 0.3s ease;
+        }
+
+        /* ===== Base Styles ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary-bg), var(--secondary-bg));
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* ===== Background Animation ===== */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            filter: blur(80px);
+            opacity: 0.8;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff0066, #0066ff);
+            width: 500px;
+            height: 500px;
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .shape:nth-child(2) {
+            bottom: -100px;
+            right: -100px;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(50px, -50px); }
+        }
+
+        /* ===== Main Container ===== */
+        .container {
+            width: 100%;
+            max-width: 450px;
+            padding: 30px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--glass-border);
+            margin: 20px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== Profile Section ===== */
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-name {
+            font-size: 24px;
+            font-weight: 600;
+            margin-top: 15px;
+            color: var(--text-light);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-bio {
+            color: var(--text-muted);
+            font-size: 14px;
+            max-width: 80%;
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+
+        /* ===== Section Titles ===== */
+        .section-title {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* ===== Link Styles ===== */
+        .link {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            text-decoration: none;
+            color: white;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+            z-index: 1;
+        }
+
+        .link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .link i {
+            font-size: 20px;
+            margin-right: 15px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .link span {
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Link background hover effect */
+        .link-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .link:hover .link-bg {
+            opacity: 0.2;
+        }
+
+        /* ===== Social Cards Grid ===== */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .social-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            aspect-ratio: 1;
+            padding: 20px 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            text-decoration: none;
+            color: white;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        .social-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-card i {
+            font-size: 28px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-card:hover i {
+            transform: scale(1.2);
+        }
+
+        .social-card span {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* ===== Email Button ===== */
+        .email-btn {
+            justify-content: center;
+        }
+
+        /* ===== Ripple Effect ===== */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* ===== Footer ===== */
+        .footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 12px;
+            margin-top: 20px;
+        }
+
+        /* ===== Color Classes for Links ===== */
+        .discord { background-color: var(--discord); }
+        .twitter { background-color: var(--twitter); }
+        .youtube { background-color: var(--youtube); }
+        .facebook { background-color: var(--facebook); }
+        .github { background-color: var(--github); }
+        .linkedin { background-color: var(--linkedin); }
+        .instagram { background-color: var(--instagram); }
+        .reddit { background-color: var(--reddit); }
+        .email { background-color: var(--email); }
+        .telegram { background-color: var(--telegram); }
+        .whatsapp { background-color: var(--whatsapp); }
+
+        /* ===== Responsive Styles ===== */
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .profile-img {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .profile-name {
+                font-size: 20px;
+            }
+            
+            .link, .email-btn {
+                padding: 12px 15px;
+            }
+            
+            .link i {
+                font-size: 18px;
+                margin-right: 10px;
+            }
+            
+            .social-card i {
+                font-size: 24px;
+            }
+            
+            .social-card span {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Profile Section -->
+        <section class="profile-section">
+            <img src="logo.png" alt="BJM Developers Logo" class="profile-img">
+            <h1 class="profile-name">BJM Developers</h1>
+            <p class="profile-bio">Building digital experiences that matter</p>
+        </section>
+        
+        <!-- Main Links Section -->
+        <section class="links-section">
+            <h2 class="section-title">Connect With Us</h2>
+            
+            <a href="https://discord.gg/7Z2ERWH9" class="link" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-discord"></i>
+                <span>Join Our Discord</span>
+                <div class="link-bg discord"></div>
+            </a>
+            
+            <a href="https://x.com/bjmdevelopers" class="link" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-twitter"></i>
+                <span>Follow on Twitter</span>
+                <div class="link-bg twitter"></div>
+            </a>
+            
+            <a href="https://youtube.com/@bjmdevelopers" class="link" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-youtube"></i>
+                <span>YouTube Channel</span>
+                <div class="link-bg youtube"></div>
+            </a>
+            
+            <a href="https://www.facebook.com/share/1B2zZarYfX/" class="link" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-facebook"></i>
+                <span>Facebook Page</span>
+                <div class="link-bg facebook"></div>
+            </a>
+        </section>
+        
+        <!-- Social Cards Section -->
+        <section class="cards-section">
+            <h2 class="section-title">Our Socials</h2>
+            
+            <div class="cards-grid">
+                <a href="https://github.com/bjmdevelopers" class="social-card" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                    <div class="link-bg github"></div>
+                </a>
+                
+                <a href="https://www.linkedin.com/in/bhargav-gondaliya-2b168624b" class="social-card" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                    <div class="link-bg linkedin"></div>
+                </a>
+                
+                <a href="https://www.instagram.com/bjmdevelopers" class="social-card" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                    <div class="link-bg instagram"></div>
+                </a>
+                
+                <a href="https://www.reddit.com/u/bjmdevelopers" class="social-card" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-reddit"></i>
+                    <span>Reddit</span>
+                    <div class="link-bg reddit"></div>
+                </a>
+            </div>
+        </section>
+        
+        <!-- Messaging Section -->
+        <section class="messaging-section">
+            <h2 class="section-title">Message Us</h2>
+            
+            <a href="https://t.me/mrbhargavgondaliya" class="link" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-telegram"></i>
+                <span>Telegram (Personal)</span>
+                <div class="link-bg telegram"></div>
+            </a>
+            
+            <a href="https://t.me/bjmdevelopers" class="link" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-telegram"></i>
+                <span>Telegram Channel</span>
+                <div class="link-bg telegram"></div>
+            </a>
+            
+            <a href="https://wa.me/+918780819413" class="link" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp (Personal)</span>
+                <div class="link-bg whatsapp"></div>
+            </a>
+            
+            <a href="https://chat.whatsapp.com/GTN0UejER6m2njcK1Yvcto" class="link" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp Community</span>
+                <div class="link-bg whatsapp"></div>
+            </a>
+        </section>
+        
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <h2 class="section-title">Get In Touch</h2>
+            
+            <a href="mailto:bjmdevelopers777@gmail.com" class="link email-btn" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-envelope"></i>
+                <span>Email Us</span>
+                <div class="link-bg email"></div>
+            </a>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; <span id="current-year">2023</span> BJM Developers. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animate container on load
+            const container = document.querySelector('.container');
+            setTimeout(() => {
+                container.classList.add('visible');
+            }, 100);
+            
+            // Update copyright year
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
+            // Ripple effect for interactive elements
+            const addRippleEffect = (element) => {
+                element.addEventListener('click', (e) => {
+                    const rect = element.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const ripple = document.createElement('span');
+                    ripple.classList.add('ripple');
+                    ripple.style.left = `${x}px`;
+                    ripple.style.top = `${y}px`;
+                    
+                    // Add brand color to ripple if available
+                    const bgElement = element.querySelector('.link-bg');
+                    if (bgElement) {
+                        const bgColor = window.getComputedStyle(bgElement).backgroundColor;
+                        ripple.style.backgroundColor = bgColor;
+                    }
+                    
+                    element.appendChild(ripple);
+                    
+                    ripple.addEventListener('animationend', () => {
+                        ripple.remove();
+                    });
+                });
+            };
+            
+            // Apply ripple effect to all interactive elements
+            document.querySelectorAll('.link, .social-card').forEach(addRippleEffect);
+        });
+    </script>
+</body>
+</html>
