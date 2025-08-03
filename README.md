@@ -3,7 +3,7 @@
 
 **All your important links in one beautiful, responsive portal**  
 
-[![Live Demo](https://img.shields.io/badge/LIVE-DEMO-brightgreen?style=for-the-badge)](https://bjmdevelopers.github.io/Link-Hub/) 
+[Live Demo](https://bjmdevelopers.github.io/Link-Hub/) 
 
 [![License](https://img.shields.io/github/license/BJMDevelopers/Link-Hub?style=for-the-badge)](LICENSE)
 
@@ -37,4 +37,3 @@ git clone https://github.com/bjmdevelopers/Link-Hub.git
 
 ## 📜 License
 MIT © [BJM Developers](https://github.com/bjmdevelopers)
-```
